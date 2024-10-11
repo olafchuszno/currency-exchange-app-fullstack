@@ -1,0 +1,85 @@
+@use './styles/variables' as *;
+@import 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap';
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  gap: $gap-main;
+  background-color: rgb(67, 62, 62);
+  padding: $padding-main;
+  flex-wrap: wrap;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.section-tile {
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: calc((100% - (2 * $gap-main) - ($padding-main * 2)) / 3);
+  background-color: $color-background;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 3px solid $color-background-secondary;
+  border-radius: 24px;
+  padding: 24px;
+
+  @media (max-width: 850px) {
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+  }
+}
+
+.title {
+  max-width: max-content;
+
+  &--2 {
+    color: whitesmoke;
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+input {
+  border: none;
+  border-radius: 4px;
+  padding-left: 4px;
+  box-sizing: border-box;
+}
+
+.button-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: max-content;
+}
+
+.button {
+  background-color: rgb(162, 118, 76);
+  color: $color-background-secondary;
+  font-weight: 600;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:focus {
+    background-color: rgb(220, 199, 173);
+    color: rgb(67, 44, 44);
+  }
+
+  &:disabled {
+    background-color: rgb(88, 88, 88);
+    color: rgb(221, 221, 221);
+  }
+}

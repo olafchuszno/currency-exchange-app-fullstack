@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3030:3030" 
+    networks:
+      - my-network
+    env_file:
+      - ./backend/.env  
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"  
+    networks:
+      - my-network
+    env_file:
+      - ./frontend/.env  
+
+networks:
+  my-network:
+    driver: bridge
