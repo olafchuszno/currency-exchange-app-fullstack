@@ -26,6 +26,6 @@ Technologies you need installed on your machine for the app to run.
 - Docker and Docker Compose: Instalation instructions are to be found on this url https://docs.docker.com/get-docker/
 
 ## Running the app
-  $ git clone https://github.com/yourusername/currency-app-fullstack.git
+  $ git clone https://github.com/olafchuszno/currency-exchange-app-fullstack.git
   $ cd currency-app-fullstack
   $ docker compose up --build
