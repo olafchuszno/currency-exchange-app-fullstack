@@ -1,25 +1,37 @@
-version: '3.8'
-
 services:
-  backend:
-    build:
-      context: ./backend
-    ports:
-      - "3030:3030" 
-    networks:
-      - my-network
-    env_file:
-      - ./backend/.env  
 
   frontend:
-    build:
-      context: ./frontend
+    build: ./frontend
     ports:
       - "3000:3000"  
     networks:
       - my-network
     env_file:
-      - ./frontend/.env  
+      - ./frontend/.env 
+
+  backend:
+    build: ./backend
+    ports:
+      - "4000:4000" 
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=FromPolandWithDev
+      - DB_NAME=currency
+    env_file:
+      - ./backend/.env  
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: FromPolandWithDev
+      POSTGRES_DB: currency
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
 
 networks:
   my-network:
