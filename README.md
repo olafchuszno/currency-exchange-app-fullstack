@@ -1,1 +1,1 @@
-# currency-exchange-app-fullstack
+# Currency-exchange-app-fullstack
